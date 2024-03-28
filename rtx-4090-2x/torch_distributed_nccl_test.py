@@ -43,7 +43,8 @@ if __name__ == '__main__':
     torch.cuda.synchronize(device)
     end  = time.monotonic()
     elapsed = end - start
-    print(f"rank={local_rank} broadcast(a, src=0) N={N}, elapsed_time={elapsed:.4f}s, {storage_size*N/elapsed/2**30:.3f} GB/s, sum={a.sum()} ({a.device})")
+    if local_rank == 0:
+        print(f"rank={local_rank} broadcast(a, src=0) N={N}, elapsed_time={elapsed:.4f}s, {storage_size*N/elapsed/2**30:.3f} GB/s, sum={a.sum()} ({a.device})")
 
     torch.cuda.synchronize(device)
     start  = time.monotonic()
@@ -52,4 +53,5 @@ if __name__ == '__main__':
     torch.cuda.synchronize(device)
     end  = time.monotonic()
     elapsed = end - start
-    print(f"rank={local_rank} broadcast(a, src=1) N={N}, elapsed_time={elapsed:.4f}s, {storage_size*N/elapsed/2**30:.3f} GB/s, sum={a.sum()} ({a.device})")
+    if local_rank == 0:
+        print(f"rank={local_rank} broadcast(a, src=1) N={N}, elapsed_time={elapsed:.4f}s, {storage_size*N/elapsed/2**30:.3f} GB/s, sum={a.sum()} ({a.device})")
