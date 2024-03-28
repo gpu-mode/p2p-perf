@@ -1,0 +1,6 @@
+[submodule "nccl-tests"]
+	path = nccl-tests
+	url = https://github.com/NVIDIA/nccl-tests.git
+[submodule "cuda-samples"]
+	path = cuda-samples
+	url = https://github.com/NVIDIA/cuda-samples.git
