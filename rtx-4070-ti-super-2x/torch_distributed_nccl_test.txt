@@ -1,0 +1,4 @@
+rank=0 send N=50, elapsed_time=16.2741s, 12.289 GB/s, sum=-39963.23046875 (cuda:0)
+rank=1 recv N=50, elapsed_time=16.2742s, 12.289 GB/s, sum=-39963.23046875 (cuda:1)
+rank=0 broadcast(a, src=0) N=50, elapsed_time=16.5336s, 12.097 GB/s, sum=-39963.23046875 (cuda:0)
+rank=0 broadcast(a, src=1) N=50, elapsed_time=16.3850s, 12.206 GB/s, sum=-39963.23046875 (cuda:0)
